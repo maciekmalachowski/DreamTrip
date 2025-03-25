@@ -1,5 +1,6 @@
 from crewai import Agent, Crew, Process, Task
 from crewai.project import CrewBase, agent, crew, task
+# from tools.browser_tool import BrowserTools # not working :C
 from crewai_tools import SerperDevTool
 
 @CrewBase
@@ -13,23 +14,33 @@ class TripAgents():
     def weather_researcher(self) -> Agent:
         return Agent(
             config=self.agents_config['weather_researcher'],
-            verbose=True,
-            # tools=[SerperDevTool()]
+            verbose=False,
+            tools=[
+            # SerperDevTool(),
+            # BrowserTools.scrape_and_summarize_website,
+            ]
         )
     
     @agent
     def local_expert(self) -> Agent:
         return Agent(
             config=self.agents_config['local_expert'],
-            verbose=True
+            verbose=False,
+            tools=[
+            # SerperDevTool(),
+            # BrowserTools.scrape_and_summarize_website,
+            ]
         )
 
     @agent
     def travel_planner(self) -> Agent:
         return Agent(
             config=self.agents_config['travel_planner'],
-            verbose=True,
-            # tools=[CalculatorTools.calculate]
+            verbose=False,
+            tools=[
+            # SerperDevTool(),
+            # BrowserTools.scrape_and_summarize_website,
+            ]
         )
 
     @task

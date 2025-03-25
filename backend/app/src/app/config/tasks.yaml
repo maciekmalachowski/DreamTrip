@@ -1,31 +1,31 @@
 weather_researcher_task:
   description: >
-    Gather accurate and up-to-date weather data for {city} on {date}. 
+    Gather accurate and up-to-date weather data for {destination} from {startDate} to {endDate}. 
     Include temperature, precipitation, wind conditions, and any significant 
     weather patterns affecting the area.
   expected_output: >
     A concise weather report detailing temperature, precipitation chances, 
-    wind speed, and any notable weather events for {city} on {date}.
+    wind speed, and any notable weather events for {destination} from {startDate} to {endDate}.
   agent: weather_researcher
 
 local_expert_task:
   description: >
-    Identify the most interesting attractions and best dining spots in {city}. 
+    Identify the most interesting attractions and best dining spots in {destination}. 
     Ensure recommendations cover a mix of well-known landmarks and hidden gems, 
     with options suitable for different preferences.
   expected_output: >
-    A curated list of at least 5 must-visit attractions and 5 top dining spots in {city}, 
+    A curated list of at least 5 must-visit attractions and 5 top dining spots in {destination}, 
     including brief descriptions of why each place is worth visiting.
   agent: local_expert
 
 travel_planner_task:
   description: >
-    Create a detailed {date_range}-day travel itinerary for {city} based on a given budget of {budget}
-    and a travel group type of {group_type}. 
+    Create a detailed {dateRange}-day travel itinerary for {destination} based on a given budget of {budget}
+    and a travel group type of {travelerType}. 
     Ensure the plan balances sightseeing, activities, dining, and relaxation.
   expected_output: >
-    A structured {date_range}-day itinerary including daily activities, recommended places to eat, 
-    estimated costs, and travel tips tailored to {group_type} within the {budget}.
+    A structured {dateRange}-day itinerary including daily activities, recommended places to eat, 
+    estimated costs, and travel tips tailored to {travelerType} within the {budget}.
     At the end of the itinerary, provide a summary of the total cost for the trip and a comparison 
     with the budget to see if the plan fits within the given financial constraints.
   agent: travel_planner

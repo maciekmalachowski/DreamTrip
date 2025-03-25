@@ -1,26 +1,31 @@
-// api.ts
 import axios from 'axios';
 
-const BASE_URL = 'http://localhost:5000';
+const API_BASE_URL = 'http://localhost:5000';
 
-// Function to handle GET requests
-export const getData = async (endpoint: string) => {
+// Create an Axios instance
+const api = axios.create({
+  baseURL: API_BASE_URL
+});
+
+// Function to send a trip planning request
+export const planTrip = async (formData: any) => {
   try {
-    const response = await axios.get(`${BASE_URL}/${endpoint}`);
+    const response = await api.post('/plan-trip', {
+      destination: formData.destination,
+      startDate: formData.startDate, // Convert to YYYY-MM-DD
+      endDate: formData.endDate, // Convert to YYYY-MM-DD
+      dateRange: formData.endDate - formData.startDate,
+      budget: formData.budget,
+      travelerType: formData.travelerType,
+    });
+
     return response.data;
   } catch (error) {
-    console.error('Error fetching data:', error);
-    throw error;
-  }
-};
-
-// Function to handle POST requests
-export const postData = async (endpoint: string, body: any) => {
-  try {
-    const response = await axios.post(`${BASE_URL}/${endpoint}`, body);
-    return response.data;
-  } catch (error) {
-    console.error('Error posting data:', error);
+    if (axios.isAxiosError(error)) {
+      console.error(error.response?.data);
+      throw new Error(error.response?.data?.error || 'Failed to generate a trip');
+    }
+    console.error(error);
     throw error;
   }
 };

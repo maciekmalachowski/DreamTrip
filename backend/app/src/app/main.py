@@ -2,25 +2,25 @@
 import sys
 import warnings
 from datetime import datetime
-from app.crew import TripAgents
+from app.src.app.crew import TripAgents
 
 warnings.filterwarnings("ignore", category=SyntaxWarning, module="pysbd")
 
-def run():
+def run(inputs):
     """
     Run the crew.
     """
-    inputs = {
-        'city': 'Gdansk',
-        'date': str(datetime.now().year),
-        'date_range': '3',
-        'budget': '100 euro',
-        'group_type': 'solo traveler'
-    }
+    # inputs = {
+    #     'city': 'Gdansk',
+    #     'date': str(datetime.now().year),
+    #     'date_range': '3',
+    #     'budget': '100 euro',
+    #     'group_type': 'solo traveler'
+    # }
     
     try:
         result = TripAgents().crew().kickoff(inputs=inputs)
-        print(result)
+        # print(result)
     except Exception as e:
         raise Exception(f"An error occurred while running the crew: {e}")
 
