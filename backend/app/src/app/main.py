@@ -10,17 +10,9 @@ def run(inputs):
     """
     Run the crew.
     """
-    # inputs = {
-    #     'city': 'Gdansk',
-    #     'date': str(datetime.now().year),
-    #     'date_range': '3',
-    #     'budget': '100 euro',
-    #     'group_type': 'solo traveler'
-    # }
-    
     try:
         result = TripAgents().crew().kickoff(inputs=inputs)
-        # print(result)
+        return {"itinerary": result}
     except Exception as e:
         raise Exception(f"An error occurred while running the crew: {e}")
 
