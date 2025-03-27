@@ -38,7 +38,7 @@ export const TravelForm: React.FC<TravelFormProps> = ({ formData, onChange, onSu
             </label>
             <DatePicker selected={formData.startDate} onChange={date => onChange({
             startDate: date
-          })} className="w-full p-3 border border-green-200 rounded-md focus:ring-green-500 focus:border-green-500" minDate={new Date()} />
+          })} className="w-full p-3 border border-green-200 rounded-md focus:ring-green-500 focus:border-green-500" minDate={new Date()} dateFormat="dd/MM/yyyy" />
           </div>
           <div>
             <label className="block text-sm font-medium text-green-800 mb-1">
@@ -49,7 +49,7 @@ export const TravelForm: React.FC<TravelFormProps> = ({ formData, onChange, onSu
             </label>
             <DatePicker selected={formData.endDate} onChange={date => onChange({
             endDate: date
-          })} className="w-full p-3 border border-green-200 rounded-md focus:ring-green-500 focus:border-green-500" minDate={formData.startDate || new Date()} />
+          })} className="w-full p-3 border border-green-200 rounded-md focus:ring-green-500 focus:border-green-500" minDate={formData.startDate || new Date()} dateFormat="dd/MM/yyyy" />
           </div>
 
           {/* Destination */}
@@ -89,7 +89,7 @@ export const TravelForm: React.FC<TravelFormProps> = ({ formData, onChange, onSu
           <label className="block text-sm font-medium text-green-800 mb-1">
             <div className="flex items-center">
               <DollarSignIcon className="h-4 w-4 mr-2 text-green-700" />
-              Adventure Budget (${formData.budget})
+              Adventure Budget Per Person (${formData.budget})
             </div>
           </label>
           <input type="range" min="100" max="5000" step="100" value={formData.budget} onChange={e => onChange({
