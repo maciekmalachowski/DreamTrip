@@ -32,7 +32,7 @@ export const ItineraryResults = ({ itinerary, destination, travelerType, budget 
 
         {/* Itinerary Content */}
         <div className="border-t border-green-100 pt-6">
-          <div className="whitespace-pre-wrap font-mono text-sm bg-green-50/50 p-6 rounded-lg overflow-auto max-h-[60vh] text-green-900">
+          <div className="whitespace-pre-wrap font-mono text-md bg-green-50/50 p-6 rounded-lg overflow-auto max-h-[60vh] text-green-900">
             <ReactMarkdown>{itinerary}</ReactMarkdown>
           </div>
         </div>

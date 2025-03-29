@@ -12,7 +12,7 @@ def run(inputs):
     """
     try:
         result = TripAgents().crew().kickoff(inputs=inputs)
-        return {"itinerary": result}
+        return {"response": result.raw}
     except Exception as e:
         raise Exception(f"An error occurred while running the crew: {e}")
 
@@ -21,12 +21,14 @@ def test():
     Test the crew execution and returns the results.
     """
     inputs = {
-        'city': 'Naples',
-        'date': str(datetime.now().year),
-        'date_range': '7',
+        'destination': 'Naples',
+        'startDate': str(datetime.now().year),
+        'endDate': str(datetime.now().year),
+        'dateRange': '7',
         'budget': '1000 euro',
-        'group_type': 'solo traveler'
+        'travelerType': 'solo traveler'
     }
+    
     try:
         TripAgents().crew().test(n_iterations=int(sys.argv[1]), openai_model_name=sys.argv[2], inputs=inputs)
 

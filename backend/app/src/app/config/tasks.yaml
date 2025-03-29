@@ -20,12 +20,30 @@ local_expert_task:
 
 travel_planner_task:
   description: >
-    Create a detailed {dateRange}-day travel itinerary for {destination} based on a given budget of {budget}
+    Create a detailed {dateRange}-day travel itinerary for {destination} based on a given budget of {budget} per person
     and a travel group type of {travelerType}. 
     Ensure the plan balances sightseeing, activities, dining, and relaxation.
+    Incorporate expected weather conditions for the travel dates to suggest appropriate activities, 
+    packing tips, and any necessary adjustments due to climate considerations.
   expected_output: >
-    A structured {dateRange}-day itinerary including daily activities, recommended places to eat, 
-    estimated costs, and travel tips tailored to {travelerType} within the {budget}.
-    At the end of the itinerary, provide a summary of the total cost for the trip and a comparison 
-    with the budget to see if the plan fits within the given financial constraints.
+    Return the itinerary in a **Markdown** format for better readability.  
+
+    ## {destination} Travel Itinerary  
+    **Total Days:** {dateRange} 
+    **Expected Weather:** _(Include a brief weather summary for the trip dates)_  
+
+    ### Daily Plan  
+    **Day X - Weekday, Month Day**  
+    - ⛅ **Weather:** _(Expected temperature and conditions)_  
+    - 🌅 **Morning:** *Time* - **Activity**  
+    - 🌞 **Afternoon:** *Time* - **Activity**  
+    - 🌙 **Evening:** *Time* - **Activity**  
+    - 🍽️ **Dining:**  **Breakfast:** _[Restaurant Name] - [Cuisine]_ | **Lunch:** _[Restaurant Name] - [Cuisine]_ | **Dinner:** _[Restaurant Name] - [Cuisine]_  
+
+    ### Additional Travel Tips  
+    - 🧳 **Packing recommendations** based on weather.  
+    - 🎭 **Special events or festivals** happening during the trip.  
+
+    ### Budget Summary  
+    **Total Estimated Cost:** ${totalCost} | **Budget Comparison:** _(Does it fit within the budget? If not, suggest adjustments.)_  
   agent: travel_planner
