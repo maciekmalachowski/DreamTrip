@@ -25,25 +25,32 @@ travel_planner_task:
     Ensure the plan balances sightseeing, activities, dining, and relaxation.
     Incorporate expected weather conditions for the travel dates to suggest appropriate activities, 
     packing tips, and any necessary adjustments due to climate considerations.
+    For each attraction or dining place listed in the itinerary, provide a **Google Maps link** 
+    to its location instead of linking to the attraction’s website.
+
   expected_output: >
-    Return the itinerary in a **Markdown** format for better readability.  
+    Return the itinerary in a well-structured **Markdown** format for better readability.
 
     ## {destination} Travel Itinerary  
-    **Total Days:** {dateRange} 
+    **Total Days:** {dateRange}  
     **Expected Weather:** _(Include a brief weather summary for the trip dates)_  
 
     ### Daily Plan  
     **Day X - Weekday, Month Day**  
     - ⛅ **Weather:** _(Expected temperature and conditions)_  
-    - 🌅 **Morning:** *Time* - **Activity**  
-    - 🌞 **Afternoon:** *Time* - **Activity**  
-    - 🌙 **Evening:** *Time* - **Activity**  
-    - 🍽️ **Dining:**  **Breakfast:** _[Restaurant Name] - [Cuisine]_ | **Lunch:** _[Restaurant Name] - [Cuisine]_ | **Dinner:** _[Restaurant Name] - [Cuisine]_  
+    - 🌅 **Morning:** *Time* - **[Attraction Name](https://www.google.com/maps/search/?q=Attraction+Name)*  
+    - 🌞 **Afternoon:** *Time* - **[Attraction Name](https://www.google.com/maps/search/?q=Attraction+Name)*  
+    - 🌙 **Evening:** *Time* - **[Attraction Name](https://www.google.com/maps/search/?q=Attraction+Name)*  
+    - 🍽️ **Dining:**  
+        - **Breakfast:** _[Restaurant Name](https://www.google.com/maps/search/?q=Restaurant+Name) - [Cuisine]_  
+        - **Lunch:** _[Restaurant Name](https://www.google.com/maps/search/?q=Restaurant+Name) - [Cuisine]_  
+        - **Dinner:** _[Restaurant Name](https://www.google.com/maps/search/?q=Restaurant+Name) - [Cuisine]_  
 
     ### Additional Travel Tips  
     - 🧳 **Packing recommendations** based on weather.  
     - 🎭 **Special events or festivals** happening during the trip.  
 
     ### Budget Summary  
-    **Total Estimated Cost:** ${totalCost} | **Budget Comparison:** _(Does it fit within the budget? If not, suggest adjustments.)_  
+    **Total Estimated Cost:** ${totalCost}  
+    **Budget Comparison:** _(Does it fit within the budget? If not, suggest adjustments.)_  
   agent: travel_planner
