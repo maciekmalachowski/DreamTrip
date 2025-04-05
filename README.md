@@ -22,6 +22,12 @@
 	<img src="https://img.shields.io/badge/TypeScript-3178C6.svg?style=for-the-badge&logo=TypeScript&logoColor=white" alt="TypeScript">
 	<img src="https://img.shields.io/badge/Tailwind%20CSS-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white" alt="Tailwind">
 </p>
+
+<h2 align="center">
+  <a href="https://www.loom.com/share/9b8a2803a6dd4458bebc35343de22616?sid=7c09a5c0-5a16-47a4-a8c2-f19ac2bd1442" target="_blank">
+    ▶️ Watch Demo Video ◀
+  </a>
+</h2>
 <br>
 
 
